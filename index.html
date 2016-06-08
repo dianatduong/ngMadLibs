@@ -8,7 +8,7 @@
     <script src="js/script.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="myCtrl" class="wrapper">
+    <div class="wrapper">
     	<header>
     		<img id="smiley" src="images/smiley-face.png" alt="smiley face" width="150">
     		<img id="logo" src="images/logo.png" alt="logo">
@@ -28,7 +28,7 @@
 			<input type="text" ng-model="adjective" ng-init="adjective='adjective'"/>	
 		</section>
 		<hr>
-	    <section class="results-section" ng-repeat="word in words">
+	    <section class="results-section">
 	    	<p><span class="replaced-words">{{ maleName }}</span> was a <span class="replaced-words">{{ jobTitle }}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="replaced-words">{{ tediousTask }}</span> and <span class="replaced-words">{{ dirtyTask }}</span>. So, <span class="replaced-words">{{ maleName }}</span> met with his life mentor <span class="replaced-words" >{{ celebrity }}</span> who told him to learn how to <span class="replaced-words">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ uselessSkill }}</span> so he studied programming instead.</p><br>
 
 	    	<p>What a great decision! With his new skills, <span class="replaced-words">{{ maleName }}</span> built a(n) <span  class="replaced-words">{{ adjective }}</span> robot named <span class="replaced-words">{{ obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ dirtyTask }}</span> but did it <span class="replaced-words">{{ hugeNumber }}</span> faster.</p>
