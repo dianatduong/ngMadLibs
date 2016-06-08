@@ -8,14 +8,14 @@
     <script src="js/script.js"></script>
 </head>
 <body ng-app="myApp">
-    <div class="wrapper">
+    <div ng-controller="myCtrl" class="wrapper">
     	<header>
     		<img id="smiley" src="images/smiley-face.png" alt="smiley face" width="150">
     		<img id="logo" src="images/logo.png" alt="logo">
     	</header>
 		<section class="input-section">
 			<h1>Provide the following words:</h1>
-			<input type="text" ng-model="maleName" ng-init="maleName='male name'"/>
+			<input type="text" ng-model="name" ng-init="name='name'"/>
 			<input type="text" ng-model="jobTitle" ng-init="jobTitle='job title'"/>
 			<input type="text" ng-model="tediousTask" ng-init="tediousTask='tedious task'"/>
 			<br>
@@ -25,13 +25,19 @@
 			<br>
 			<input type="text" ng-model="obnoxiousCelebrity" ng-init="obnoxiousCelebrity='obnoxious celebrity'"/>
 			<input type="text" ng-model="hugeNumber" ng-init="hugeNumber='huge number'"/>
-			<input type="text" ng-model="adjective" ng-init="adjective='adjective'"/>	
+			<input type="text" ng-model="adjective" ng-init="adjective='adjective'"/><br>
+
+			<div class="gender-section">
+				<p class="gender-text">Please pick the gender of the name you have provided:</p>
+				<input class="radio-btns" type="radio" ng-model="gender" ng-value="'female'"/>Female
+				<input class="radio-btns" type="radio" ng-model="gender" ng-value="'male'"/>Male<br>
+			</div>
 		</section>
 		<hr>
-	    <section class="results-section">
-	    	<p><span class="replaced-words">{{ maleName }}</span> was a <span class="replaced-words">{{ jobTitle }}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="replaced-words">{{ tediousTask }}</span> and <span class="replaced-words">{{ dirtyTask }}</span>. So, <span class="replaced-words">{{ maleName }}</span> met with his life mentor <span class="replaced-words" >{{ celebrity }}</span> who told him to learn how to <span class="replaced-words">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ uselessSkill }}</span> so he studied programming instead.</p><br>
+	    <section class="results-section"> 
+	    	<p><span class="replaced-words">{{ name }}</span> was a <span class="replaced-words">{{ jobTitle }}</span> who loved technology. Although {{ firstPersonSubjective[gender] }} loved parts of {{ firstPersonObjective[gender] }} job, {{ firstPersonSubjective[gender] }} absolutely hated <span class="replaced-words">{{ tediousTask }}</span> and <span class="replaced-words">{{ dirtyTask }}</span>. So, <span class="replaced-words">{{ name }}</span> met with {{ firstPersonObjective[gender] }} life mentor <span class="replaced-words" >{{ celebrity }}</span> who told {{ firstPersonObjective[gender] }} to learn how to <span class="replaced-words">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ uselessSkill }}</span> so {{ firstPersonSubjective[gender] }} studied programming instead.</p><br>
 
-	    	<p>What a great decision! With his new skills, <span class="replaced-words">{{ maleName }}</span> built a(n) <span  class="replaced-words">{{ adjective }}</span> robot named <span class="replaced-words">{{ obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ dirtyTask }}</span> but did it <span class="replaced-words">{{ hugeNumber }}</span> faster.</p>
+	    	<p>What a great decision! With {{ firstPersonObjective[gender] }} new skills, <span class="replaced-words">{{ name }}</span> built a(n) <span  class="replaced-words">{{ adjective }}</span> robot named <span class="replaced-words">{{ obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ dirtyTask }}</span> but did it <span class="replaced-words">{{ hugeNumber }}</span> faster.</p>
 	    </section>
     </div>
 </body>
