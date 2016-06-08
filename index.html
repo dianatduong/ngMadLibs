@@ -8,12 +8,12 @@
     <script src="js/script.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="myCtrl">
+    <div ng-controller="myCtrl" class="wrapper">
     	<header>
-    		<img src="images/smiley-face.png" alt="smiley face">
-    		<img src="images/logo.png" alt="logo">
+    		<img id="smiley" src="images/smiley-face.png" alt="smiley face" width="150">
+    		<img id="logo" src="images/logo.png" alt="logo">
     	</header>
-		<div>
+		<section class="input-section">
 			<h1>Provide the following words:</h1>
 			<input type="text" placeholder="Male name" ng-model="maleName"/>
 			<input type="text" placeholder="Job title" ng-model="jobTitle"/>
@@ -26,12 +26,13 @@
 			<input type="text" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity"/>
 			<input type="text" placeholder="Huge number" ng-model="hugeNumber"/>
 			<input type="text" placeholder="Adjective" ng-model="adjective"/>	
-		</div>
-	    <div ng-repeat="word in words" ng-init="words={maleName:'', jobTitle:'', tediousTask:'', dirtyTask:'', celebrity:'', uselessSkill:'', obnoxiousCelebrity:'', hugeNumber:'', adjective:''}">
-	    	<p>{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{ celebrity }} who told him to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p>
+		</section>
+		<hr>
+	    <section class="results-section" ng-repeat="word in words" ng-init="words={maleName:'', jobTitle:'', tediousTask:'', dirtyTask:'', celebrity:'', uselessSkill:'', obnoxiousCelebrity:'', hugeNumber:'', adjective:''}">
+	    	<p>{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{ celebrity }} who told him to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p><br>
 
 	    	<p>What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} faster.</p>
-	    </div>
+	    </section>
     </div>
 </body>
 </html>
