@@ -1,6 +1,6 @@
 
 angular.module('myApp', []) 
-  .controller('myCtrl', function($scope) {
+  .controller('myCtrl', function() {
     var vm = this;
     // sets the radio button input to female on default
     vm.gender = "female"
