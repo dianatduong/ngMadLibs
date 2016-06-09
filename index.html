@@ -8,7 +8,7 @@
     <script src="js/script.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="myCtrl" class="wrapper">
+    <div ng-controller="myCtrl as vm" class="wrapper">
     	<header>
     		<img id="smiley" src="images/smiley-face.png" alt="smiley face" width="150">
     		<img id="logo" src="images/logo.png" alt="logo">
@@ -29,15 +29,15 @@
 
 			<div class="gender-section">
 				<p class="gender-text">Please pick the gender of the name you have provided:</p>
-				<input class="radio-btns" type="radio" ng-model="gender" ng-value="'female'"/>Female
-				<input class="radio-btns" type="radio" ng-model="gender" ng-value="'male'"/>Male<br>
+				<input class="radio-btns" type="radio" ng-model="vm.gender" ng-value="'female'"/>Female
+				<input class="radio-btns" type="radio" ng-model="vm.gender" ng-value="'male'"/>Male<br>
 			</div>
 		</section>
 		<hr>
 	    <section class="results-section"> 
-	    	<p><span class="replaced-words">{{ name }}</span> was a <span class="replaced-words">{{ jobTitle }}</span> who loved technology. Although {{ firstPersonSubjective[gender] }} loved parts of {{ firstPersonObjective[gender] }} job, {{ firstPersonSubjective[gender] }} absolutely hated <span class="replaced-words">{{ tediousTask }}</span> and <span class="replaced-words">{{ dirtyTask }}</span>. So, <span class="replaced-words">{{ name }}</span> met with {{ firstPersonObjective[gender] }} life mentor <span class="replaced-words" >{{ celebrity }}</span> who told {{ firstPersonObjective[gender] }} to learn how to <span class="replaced-words">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ uselessSkill }}</span> so {{ firstPersonSubjective[gender] }} studied programming instead.</p><br>
+	    	<p><span class="replaced-words">{{ name }}</span> was a <span class="replaced-words">{{ jobTitle }}</span> who loved technology. Although {{ vm.firstPersonSubjective[vm.gender] }} loved parts of {{ vm.firstPersonObjective[vm.gender] }} job, {{ vm.firstPersonSubjective[vm.gender] }} absolutely hated <span class="replaced-words">{{ tediousTask }}</span> and <span class="replaced-words">{{ dirtyTask }}</span>. So, <span class="replaced-words">{{ name }}</span> met with {{ vm.firstPersonObjective[vm.gender] }} life mentor <span class="replaced-words" >{{ celebrity }}</span> who told {{ vm.firstPersonObjective[vm.gender] }} to learn how to <span class="replaced-words">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ uselessSkill }}</span> so {{ vm.firstPersonSubjective[vm.gender] }} studied programming instead.</p><br>
 
-	    	<p>What a great decision! With {{ firstPersonObjective[gender] }} new skills, <span class="replaced-words">{{ name }}</span> built a(n) <span  class="replaced-words">{{ adjective }}</span> robot named <span class="replaced-words">{{ obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ dirtyTask }}</span> but did it <span class="replaced-words">{{ hugeNumber }}</span> faster.</p>
+	    	<p>What a great decision! With {{ vm.firstPersonObjective[vm.gender] }} new skills, <span class="replaced-words">{{ name }}</span> built a(n) <span  class="replaced-words">{{ adjective }}</span> robot named <span class="replaced-words">{{ obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ dirtyTask }}</span> but did it <span class="replaced-words">{{ hugeNumber }}</span> faster.</p>
 	    </section>
     </div>
 </body>
