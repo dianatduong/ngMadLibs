@@ -5,12 +5,16 @@ var app = angular.module('myApp', ['ngMessages'])
     //change gender
     // sets the radio button input to female on default
     vm.gender = "female"
-    vm.firstPersonSubjective = { 
+    vm.thirdPersonSubjective = { 
       female: 'she',
       male: 'he'
     }
-    vm.firstPersonObjective = {
+    vm.thirdPersonObjective = {
       female: 'her',
+      male: 'him'
+    }
+    vm.thirdPersonPossessive = {
+      female: 'hers',
       male: 'his'
     }
 
@@ -18,7 +22,7 @@ var app = angular.module('myApp', ['ngMessages'])
 
     //hides results section
     vm.results = false;
-    vm.vm= {}
+    vm.vm = {}
     vm.submittedData = []
 
     vm.submitForm = function(isValid){
