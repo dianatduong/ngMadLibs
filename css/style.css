@@ -68,6 +68,7 @@ hr {
     text-align: left;
     height: auto;
     line-height: 26px;
+    font-size: 20px;
 }
 
 .gender-section {
@@ -83,17 +84,18 @@ hr {
 .radio-btns {
     display: inline;
 }
-p {
-    font-size: 20px;
-}
+
 
 .replaced-words {
     text-decoration: underline;
 }
 
 
-
-
+.error {
+    font-size: 12px;
+    color:red;
+    margin:0;
+}
 
 
 
