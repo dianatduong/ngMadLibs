@@ -24,31 +24,33 @@
 
 			<!-- error messages -->
 			<div class="error-group">
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error.required">
-					<p class="error" ng-messages="required">Name is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error">
+					<p class="error" ng-message="required">Name is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error.required">
-					<p class="error" ng-messages="required">Job Title is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error">
+					<p class="error" ng-message="required">Job Title is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error.required">
-					<p class="error" ng-messages="required">Tedious Task is required.</p>
-				</div>	<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error.required">
-					<p class="error" ng-messages="required">Dirty Task is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error">
+					<p class="error" ng-message="required">Tedious Task is required.</p>
+				</div>	
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error">
+					<p class="error" ng-message="required">Dirty Task is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error.required">
-					<p class="error" ng-messages="required">Celebrity is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error">
+					<p class="error" ng-message="required">Celebrity is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error.required">
-					<p class="error" ng-messages="required">Useless Skill is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error">
+					<p class="error" ng-message="required">Useless Skill is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error.required">
-					<p class="error" ng-messages="required">Obnoxious Celebrity is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error">
+					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error.required">
-					<p class="error" ng-messages="required">Huge Number is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error">
+					<p class="error" ng-message="required">Huge Number is required.</p>
+					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error.required">
-					<p class="error" ng-messages="required">Adjective is required.</p>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error">
+					<p class="error" ng-message="required">Adjective is required.</p>
 				</div>
 			</div>
 
@@ -74,23 +76,31 @@
 				<input class="radio-btns" type="radio" ng-model="vm.gender" ng-value="'female'"/>Female
 				<input class="radio-btns" type="radio" ng-model="vm.gender" ng-value="'male'"/>Male<br>
 			</div>
+
 			
-				<button type="vm.submit">Generate Mad Libs</button>
-			
+
+
+
+			<div class="submit-btn">
+				<button  class="btn" type="vm.submit">Generate Mad Libs</button>
+			</div>
 		</form>
 	</section>
 
-	<hr>
+
 
 
     <section class="results-section" ng-show="vm.results"> 
     	<div>
     		<p><span class="replaced-words">{{ vm.name }}</span> was a <span class="replaced-words">{{ vm.jobTitle }}</span> who loved technology. Although {{ vm.firstPersonSubjective[vm.gender] }} loved parts of {{ vm.firstPersonObjective[vm.gender] }} job, {{ vm.firstPersonSubjective[vm.gender] }} absolutely hated <span class="replaced-words">{{ vm.tediousTask }}</span> and <span class="replaced-words">{{ vm.dirtyTask }}</span>. So, <span class="replaced-words">{{ vm.name }}</span> met with {{ vm.firstPersonObjective[vm.gender] }} life mentor <span class="replaced-words" >{{ vm.celebrity }}</span> who told {{ vm.firstPersonObjective[vm.gender] }} to learn how to <span class="replaced-words">{{ vm.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ vm.uselessSkill }}</span> so {{ vm.firstPersonSubjective[vm.gender] }} studied programming instead.</p>
     	</div>
+    	<br>
     	<div>
     		<p>What a great decision! With {{ vm.firstPersonObjective[vm.gender] }} new skills, <span class="replaced-words">{{ vm.name }}</span> built a(n) <span  class="replaced-words">{{ vm.adjective }}</span> robot named <span class="replaced-words">{{ vm.obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ vm.dirtyTask }}</span> but did it <span class="replaced-words">{{ vm.hugeNumber }}</span> faster.</p>
     	</div>
-    	<button ng-click="vm.startover">Start Over</button>
+    		<div class="restart-btn">
+    			<button class="btn" ng-click="vm.startover()">Start Over</button>
+    		</div>
     </section>
     </div>
 </body>
