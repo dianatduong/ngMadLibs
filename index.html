@@ -80,7 +80,7 @@
 		</form>
 	</section>
 
-		<hr>
+	<hr>
 
 
     <section class="results-section" ng-show="vm.results"> 
@@ -90,6 +90,7 @@
     	<div>
     		<p>What a great decision! With {{ vm.firstPersonObjective[vm.gender] }} new skills, <span class="replaced-words">{{ vm.name }}</span> built a(n) <span  class="replaced-words">{{ vm.adjective }}</span> robot named <span class="replaced-words">{{ vm.obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ vm.dirtyTask }}</span> but did it <span class="replaced-words">{{ vm.hugeNumber }}</span> faster.</p>
     	</div>
+    	<button ng-click="vm.startover">Start Over</button>
     </section>
     </div>
 </body>
