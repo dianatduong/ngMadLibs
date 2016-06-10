@@ -19,14 +19,16 @@ var app = angular.module('myApp', ['ngMessages'])
     }
 
 
-
     //hides results section
     vm.results = false;
     vm.vm = {}
     vm.submittedData = []
 
     vm.submitForm = function(isValid){
-     
+   
+//    isValid = true;
+// console.log(isValid)
+
       if (isValid) {
          vm.submittedData.push(vm.vm)
          vm.vm = {}

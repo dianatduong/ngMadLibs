@@ -20,55 +20,55 @@
 	<section class="input-section" ng-show="!vm.results">
 		<h1>Please provide the following words:</h1>
 
-		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm.$valid)" novalidate>
+		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm)" novalidate>
 
 			<!-- error messages -->
 			<div class="error-group">
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error && vm.submitted">
 					<p class="error" ng-message="required">Name is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error && vm.submitted">
 					<p class="error" ng-message="required">Job Title is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error && vm.submitted">
 					<p class="error" ng-message="required">Tedious Task is required.</p>
 				</div>	
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error && vm.submitted">
 					<p class="error" ng-message="required">Dirty Task is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error && vm.submitted">
 					<p class="error" ng-message="required">Celebrity is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error && vm.submitted">
 					<p class="error" ng-message="required">Useless Skill is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error && vm.submitted">
 					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error && vm.submitted">
 					<p class="error" ng-message="required">Huge Number is required.</p>
 					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
 				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error && vm.submitted">
 					<p class="error" ng-message="required">Adjective is required.</p>
 				</div>
 			</div>
 
 
 			<div class="input-group">
-				<input name="name" type="text" ng-model="vm.name" ng-init="vm.name='name'" required ng-pattern="/^[A-Z]/"/>
-				<input type="text" name="jobTitle" ng-model="vm.jobTitle" ng-init="vm.jobTitle='job title'" required/>
-				<input type="text" name="tediousTask" ng-model="vm.tediousTask" ng-init="vm.tediousTask='tedious task'" required/>
+				<input type="text" name="name" ng-model="vm.name" placeholder="name" required/>
+				<input type="text" name="jobTitle" ng-model="vm.jobTitle" placeholder="job title" required/>
+				<input type="text" name="tediousTask" ng-model="vm.tediousTask" placeholder="tedious task" required/>
 			</div>
 			<div class="input-group">
-				<input type="text" name="dirtyTask" ng-model="vm.dirtyTask" ng-init="vm.dirtyTask='dirty task'" required/>
-				<input type="text" name="celebrity" ng-model="vm.celebrity" ng-init="vm.celebrity='celebrity'" required/>
-				<input type="text" name="uselessSkill" ng-model="vm.uselessSkill" ng-init="vm.uselessSkill='useless skill'" required/>
+				<input type="text" name="dirtyTask" ng-model="vm.dirtyTask" placeholder="dirty task" required/>
+				<input type="text" name="celebrity" ng-model="vm.celebrity" placeholder="celebrity" required/>
+				<input type="text" name="uselessSkill" ng-model="vm.uselessSkill" placeholder="useless skill" required/>
 			</div>
 			<div class="input-group">
-				<input type="text" name="obnoxiousCelebrity" ng-model="vm.obnoxiousCelebrity" ng-init="vm.obnoxiousCelebrity='obnoxious celebrity'" required/>
-				<input type="text" name="hugeNumber" ng-model="vm.hugeNumber" ng-init="vm.hugeNumber='huge number'" required ng-minlength="6"/>
-				<input type="text" name="adjective" ng-model="vm.adjective" ng-init="vm.adjective='adjective'" required/>
+				<input type="text" name="obnoxiousCelebrity" ng-model="vm.obnoxiousCelebrity" placeholder="obnoxious celebrity" required/>
+				<input type="text" name="hugeNumber" ng-model="vm.hugeNumber" placeholder="huge number" required ng-minlength="6"/>
+				<input type="text" name="adjective" ng-model="vm.adjective" placeholder="adjective" required/>
 			</div>
 		
 			<div class="gender-section">
@@ -78,9 +78,8 @@
 			</div>
 
 
-
 			<div class="submit-btn">
-				<button  class="btn" type="vm.submit">Generate Mad Libs</button>
+				<button class="btn" type="vm.submit">Generate Mad Libs</button>
 			</div>
 		</form>
 	</section>
@@ -88,11 +87,11 @@
 
     <section class="results-section" ng-show="vm.results"> 
     	<div>
-    		<p><span class="replaced-words">{{ vm.name }}</span> was a <span class="replaced-words">{{ vm.jobTitle }}</span> who loved technology. Although {{ vm.thirdPersonSubjective[vm.gender] }} loved parts of {{ vm.thirdPersonObjective[vm.gender] }} job, {{ vm.thirdPersonSubjective[vm.gender] }} absolutely hated <span class="replaced-words">{{ vm.tediousTask }}</span> and <span class="replaced-words">{{ vm.dirtyTask }}</span>. So, <span class="replaced-words">{{ vm.name }}</span> met with {{ vm.thirdPersonObjective[vm.gender] }} life mentor <span class="replaced-words" >{{ vm.celebrity }}</span> who told {{ vm.thirdPersonObjective[vm.gender] }} to learn how to <span class="replaced-words">{{ vm.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ vm.uselessSkill }}</span> so {{ vm.thirdPersonSubjective[vm.gender] }} studied programming instead.</p>
+    		<p><span class="replaced-words">{{ vm.name }}</span> was a <span class="replaced-words">{{ vm.jobTitle }}</span> who loved technology. Although {{ vm.thirdPersonSubjective[vm.gender] }} loved parts of {{ vm.thirdPersonObjective[vm.gender] }} job, {{ vm.thirdPersonSubjective[vm.gender] }} absolutely hated <span class="replaced-words">{{ vm.tediousTask }}</span> and <span class="replaced-words">{{ vm.dirtyTask }}</span>. So, <span class="replaced-words">{{ vm.name }}</span> met with {{ vm.thirdPersonObective[vm.gender] }} life mentor <span class="replaced-words" >{{ vm.celebrity }}</span> who told {{ vm.thirdPersonObjective[vm.gender] }} to learn how to <span class="replaced-words">{{ vm.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ vm.uselessSkill }}</span> so {{ vm.thirdPersonSubjective[vm.gender] }} studied programming instead.</p>
     	</div>
     	<br>
     	<div>
-    		<p>What a great decision! With {{ vm.thirdPersonObjective[vm.gender] }} new skills, <span class="replaced-words">{{ vm.name }}</span> built a(n) <span  class="replaced-words">{{ vm.adjective }}</span> robot named <span class="replaced-words">{{ vm.obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ vm.dirtyTask }}</span> but did it <span class="replaced-words">{{ vm.hugeNumber }}</span> faster.</p>
+    		<p>What a great decision! With {{ vm.thirdPersonObjective[vm.gender] }} new skills, <span class="replaced-words">{{ vm.name }}</span> built a(n) <span class="replaced-words">{{ vm.adjective }}</span> robot named <span class="replaced-words">{{ vm.obnoxiousCelebrity }}</span> that not only loved <span class="replaced-words">{{ vm.dirtyTask }}</span> but did it <span class="replaced-words">{{ vm.hugeNumber }}</span> faster.</p>
     	</div>
     		<div class="restart-btn">
     			<button class="btn" ng-click="vm.startover()">Start Over</button>
