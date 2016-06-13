@@ -5,6 +5,7 @@
 	<title>NGMadLib | Diana Duong</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-messages.js"></script>
     <script src="js/angular-messages.js"></script>
     <script src="js/script.js"></script>
 </head>
@@ -20,40 +21,7 @@
 	<section class="input-section" ng-show="!vm.results">
 		<h1>Please provide the following words:</h1>
 
-		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm)" novalidate>
-
-			<!-- error messages -->
-			<div class="error-group">
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error && vm.submitted">
-					<p class="error" ng-message="required">Name is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error && vm.submitted">
-					<p class="error" ng-message="required">Job Title is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error && vm.submitted">
-					<p class="error" ng-message="required">Tedious Task is required.</p>
-				</div>	
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error && vm.submitted">
-					<p class="error" ng-message="required">Dirty Task is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error && vm.submitted">
-					<p class="error" ng-message="required">Celebrity is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error && vm.submitted">
-					<p class="error" ng-message="required">Useless Skill is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error && vm.submitted">
-					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error && vm.submitted">
-					<p class="error" ng-message="required">Huge Number is required.</p>
-					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error && vm.submitted">
-					<p class="error" ng-message="required">Adjective is required.</p>
-				</div>
-			</div>
-
+		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm.$valid)" novalidate>
 
 			<div class="input-group">
 				<input type="text" name="name" ng-model="vm.name" placeholder="name" required/>
@@ -81,9 +49,42 @@
 			<div class="submit-btn">
 				<button class="btn" type="vm.submit">Generate Mad Libs</button>
 			</div>
+
+	<!-- error messages -->
+			<div class="error-group">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error.required" role="alert">
+					<p class="error" ng-message="required">Name is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error.required" role="alert">
+					<p class="error" ng-message="required">Job Title is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error.required" role="alert">
+					<p class="error" ng-message="required">Tedious Task is required.</p>
+				</div>	
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error.required" role="alert">
+					<p class="error" ng-message="required">Dirty Task is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error.required" role="alert">
+					<p class="error" ng-message="required">Celebrity is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error.required" role="alert">
+					<p class="error" ng-message="required">Useless Skill is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error.required" role="alert">
+					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error.required" role="alert">
+					<p class="error" ng-message="required">Huge Number is required.</p>
+					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error.required" role="alert">
+					<p class="error" ng-message="required">Adjective is required.</p>
+				</div>
+			</div>
 		</form>
 	</section>
 
+<pre>{{ vm.myForm| json }}</pre>
 
     <section class="results-section" ng-show="vm.results"> 
     	<div>

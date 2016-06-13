@@ -26,9 +26,6 @@ var app = angular.module('myApp', ['ngMessages'])
 
     vm.submitForm = function(isValid){
    
-//    isValid = true;
-// console.log(isValid)
-
       if (isValid) {
          vm.submittedData.push(vm.vm)
          vm.vm = {}
