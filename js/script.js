@@ -14,7 +14,7 @@ var app = angular.module('myApp', ['ngMessages'])
       male: 'him'
     }
     vm.thirdPersonPossessive = {
-      female: 'hers',
+      female: 'her',
       male: 'his'
     }
 
