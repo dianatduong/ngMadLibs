@@ -21,18 +21,24 @@ var app = angular.module('myApp', ['ngMessages'])
 
     //hides results section
     vm.results = false;
+    //vm object
     vm.vm = {}
+    //submitted forms array
     vm.submittedData = []
 
+    // function to submit the form after all validation has occurred
     vm.submitForm = function(isValid){
-   
+      //if form is valid
       if (isValid) {
+        //push users input into the array
          vm.submittedData.push(vm.vm)
+         // clear form
          vm.vm = {}
          //displays results section
          vm.results = true;
       } 
       else {
+        // show error messages
         vm.submitted = true;
        }
      }
@@ -51,6 +57,8 @@ var app = angular.module('myApp', ['ngMessages'])
       vm.adjective = "";
       //hides results section
       vm.results = false;
+      // remove error messages
+      vm.myForm.$submitted = false;
     }
 
 
