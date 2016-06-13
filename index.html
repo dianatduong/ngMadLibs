@@ -22,6 +22,38 @@
 
 		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm.$valid)" novalidate>
 
+			<!-- error messages -->
+			<div class="error-group">
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error" role="alert">
+					<p class="error" ng-message="required">Name is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error" role="alert">
+					<p class="error" ng-message="required">Job Title is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error" role="alert">
+					<p class="error" ng-message="required">Tedious Task is required.</p>
+				</div>	
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error" role="alert">
+					<p class="error" ng-message="required">Dirty Task is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error" role="alert">
+					<p class="error" ng-message="required">Celebrity is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error" role="alert">
+					<p class="error" ng-message="required">Useless Skill is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error" role="alert">
+					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error" role="alert">
+					<p class="error" ng-message="required">Huge Number is required.</p>
+					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
+				</div>
+				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error" role="alert">
+					<p class="error" ng-message="required">Adjective is required.</p>
+				</div>
+			</div>
+
 			<div class="input-group">
 				<input type="text" name="name" ng-model="vm.name" placeholder="name" required/>
 				<input type="text" name="jobTitle" ng-model="vm.jobTitle" placeholder="job title" required/>
@@ -47,38 +79,6 @@
 
 			<div class="submit-btn">
 				<button class="btn" type="vm.submit">Generate Mad Libs</button>
-			</div>
-
-	<!-- error messages -->
-			<div class="error-group">
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.name.$error.required" role="alert">
-					<p class="error" ng-message="required">Name is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.jobTitle.$error.required" role="alert">
-					<p class="error" ng-message="required">Job Title is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.tediousTask.$error.required" role="alert">
-					<p class="error" ng-message="required">Tedious Task is required.</p>
-				</div>	
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.dirtyTask.$error.required" role="alert">
-					<p class="error" ng-message="required">Dirty Task is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.celebrity.$error.required" role="alert">
-					<p class="error" ng-message="required">Celebrity is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.uselessSkill.$error.required" role="alert">
-					<p class="error" ng-message="required">Useless Skill is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.obnoxiousCelebrity.$error.required" role="alert">
-					<p class="error" ng-message="required">Obnoxious Celebrity is required.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.hugeNumber.$error.required" role="alert">
-					<p class="error" ng-message="required">Huge Number is required.</p>
-					<p class="error" ng-message="minlength">Huge Number must be 6 digits long.</p>
-				</div>
-				<div ng-if="vm.myForm.$submitted" ng-messages="vm.myForm.adjective.$error.required" role="alert">
-					<p class="error" ng-message="required">Adjective is required.</p>
-				</div>
 			</div>
 		</form>
 	</section>
