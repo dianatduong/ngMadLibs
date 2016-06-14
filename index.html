@@ -17,7 +17,7 @@
 		<img id="logo" src="images/logo.png" alt="logo">
 	</header>
 
-	<section class="input-section" ng-show="!vm.results">
+	<section class="input-section" ng-hide="vm.results">
 		<h1>Please provide the following words:</h1>
 
 		<form name="vm.myForm" ng-submit="vm.submitForm(vm.myForm.$valid)" novalidate>
