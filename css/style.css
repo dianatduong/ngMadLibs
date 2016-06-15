@@ -87,11 +87,17 @@ hr {
     display: inline;
 }
 
-
 .replaced-words {
     text-decoration: underline;
 }
 
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
+
+.ng-valid.ng-dirty {
+    border-color: green;
+}
 
 .error {
     font-size: 12px;
@@ -105,7 +111,6 @@ hr {
     padding: 10px 50px;
     text-align: right;
 }
-
 
 .restart-btn {
     text-align: center;
