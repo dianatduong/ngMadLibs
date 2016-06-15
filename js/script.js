@@ -1,69 +1,68 @@
-var app = angular.module('myApp', ['ngMessages']) 
-  app.controller('myCtrl', function() {
+var app = angular.module('madLib', ['ngMessages'])
+  app.controller('InputController', function() {
 
-    var vm = this;
+    var input = this;
+  //hides results section
+    input.results = false;
+    //empty input object
+    input.input = {};
+    //submitted forms empty array
+    input.submittedData = [];
+
+    // function to submit the form after all validation has occurred
+    input.submitForm = function(isValid){
+      //if form is valid
+      if (isValid) {
+        //push users input into the array
+         input.submittedData.push(input.input)
+         // clear form
+         input.input = {}
+         //displays results section
+         input.results = true;
+      }
+      else {
+        // show error messages
+        input.submitted = true;
+       }
+    }
+
     //change gender
-    // sets the radio button input to female on default
-    vm.gender = "female"
-    vm.thirdPersonSubjective = { 
+    // sets the default on the radio button to female 
+    input.gender = "female";
+
+    input.thirdPersonSubjective = { 
       female: 'she',
       male: 'he'
     }
-    vm.thirdPersonObjective = {
+
+    input.thirdPersonObjective = {
       female: 'her',
       male: 'him'
     }
-    vm.thirdPersonPossessive = {
+
+    input.thirdPersonPossessive = {
       female: 'her',
       male: 'his'
     }
 
-
-    //hides results section
-    vm.results = false;
-    //vm object
-    vm.vm = {}
-    //submitted forms array
-    vm.submittedData = []
-
-    // function to submit the form after all validation has occurred
-    vm.submitForm = function(isValid){
-      //if form is valid
-      if (isValid) {
-        //push users input into the array
-         vm.submittedData.push(vm.vm)
-         // clear form
-         vm.vm = {}
-         //displays results section
-         vm.results = true;
-      } 
-      else {
-        // show error messages
-        vm.submitted = true;
-       }
-     }
-
-
-
-    vm.startover = function(){
-      vm.name = "";
-      vm.jobTitle = "";
-      vm.tediousTask = "";
-      vm.dirtyTask = "";
-      vm.celebrity = "";
-      vm.uselessSkill = "";
-      vm.obnoxiousCelebrity = "";
-      vm.hugeNumber = "";
-      vm.adjective = "";
+    input.startover = function(){
+      input.name = "";
+      input.jobTitle = "";
+      input.tediousTask = "";
+      input.dirtyTask = "";
+      input.celebrity = "";
+      input.uselessSkill = "";
+      input.obnoxiousCelebrity = "";
+      input.hugeNumber = "";
+      input.adjective = "";
       //hides results section
-      vm.results = false;
-      // remove error messages
-      vm.myForm.$submitted = false;
+      input.results = false;
+      //resets error messages
+      input.myForm.$submitted = false;
+      //resets form 
+      input.myForm.$setPristine();
+      
     }
-
-
-
-  })
-
+})
 
   
