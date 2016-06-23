@@ -1,4 +1,4 @@
-var app = angular.module('madLib', ['ngMessages'])
+var app = angular.module('madLib', ['ngMessages', 'ngAnimate'])
   app.controller('InputController', function() {
 
     var input = this;
@@ -20,10 +20,7 @@ var app = angular.module('madLib', ['ngMessages'])
          //displays results section
          input.results = true;
       }
-      else {
-        // show error messages
-        input.submitted = true;
-       }
+     
     }
 
     //change gender
