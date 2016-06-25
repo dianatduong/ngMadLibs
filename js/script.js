@@ -3,7 +3,7 @@ var app = angular.module('madLib', ['ngMessages', 'ngAnimate'])
 
     var input = this;
   //hides results section
-    input.results = false;
+    input.submittedResults = false;
     //empty input object
     input.input = {};
     //submitted forms empty array
@@ -13,14 +13,14 @@ var app = angular.module('madLib', ['ngMessages', 'ngAnimate'])
     input.submitForm = function(isValid){
       //if form is valid
       if (isValid) {
+
         //push users input into the array
          input.submittedData.push(input.input)
          // clear form
          input.input = {}
          //displays results section
-         input.results = true;
+         input.submittedResults = true;
       }
-     
     }
 
     //change gender
@@ -53,7 +53,7 @@ var app = angular.module('madLib', ['ngMessages', 'ngAnimate'])
       input.hugeNumber = "";
       input.adjective = "";
       //hides results section
-      input.results = false;
+      input.submittedResults = false;
       //resets error messages
       input.myForm.$submitted = false;
       //resets form 
