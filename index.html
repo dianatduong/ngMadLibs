@@ -17,14 +17,11 @@
 		<img id="logo" src="images/logo.png" alt="logo">
 	</header>
 
-	<section class="input-section" ng-hide="input.results" >
+	<section class="input-section animate-show" ng-hide="input.submittedResults" >
 	
 		<h1>Please provide the following words:</h1>
 
 		<form name="input.myForm" ng-submit="input.myForm.$valid && input.submitForm(input.myForm)" novalidate>
-
-		{{ input.myForm.$submitted}}
-		{{ input.myForm.$valid}}
 
 			<!-- error messages -->
 			<div class="error-group">
@@ -87,7 +84,7 @@
 		</form>
 	</section>
 
-    <section class="results-section" ng-show="input.results"> 
+    <section class="results-section animate-show" ng-show="input.submittedResults"> 
     	<div>
     		<p><span class="replaced-words">{{ input.name }}</span> was a <span class="replaced-words">{{ input.jobTitle }}</span> who loved technology. Although {{ input.thirdPersonSubjective[input.gender] }} loved parts of {{ input.thirdPersonPossessive[input.gender] }} job, {{ input.thirdPersonSubjective[input.gender] }} absolutely hated <span class="replaced-words">{{ input.tediousTask }}</span> and <span class="replaced-words">{{ input.dirtyTask }}</span>. So, <span class="replaced-words">{{ input.name }}</span> met with {{ input.thirdPersonPossessive[input.gender] }} life mentor <span class="replaced-words" >{{ input.celebrity }}</span> who told {{ input.thirdPersonObjective[input.gender] }} to learn how to <span class="replaced-words">{{ input.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="replaced-words">{{ input.uselessSkill }}</span> so {{ input.thirdPersonSubjective[input.gender] }} studied programming instead.</p>
     	</div>
